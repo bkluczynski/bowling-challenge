@@ -10,13 +10,18 @@ describe ('A bowling game', function() {
     expect(bowling.getCurrentScore()).toEqual(0);
   });
 
-  it('adds up the score when the game progresses', function() {
+  it('calculates the score after the first roll', function() {
     bowling.roll = function() { return 5; };
     var result = bowling.roll();
     expect(bowling.getScoreAfterRoll()).toEqual(10 - result);
   });
 
+  it('calculates the pins available after the first roll', function() {
+    bowling.roll = function() { return 3; };
+    var result = bowling.roll();
+    expect(bowling.getCurrentPinsAvailable()).toEqual(10 - result);
 
+  });
 
 
 

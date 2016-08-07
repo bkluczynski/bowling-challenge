@@ -12,11 +12,13 @@ Bowling.prototype.getCurrentScore = function(){
 Bowling.prototype.roll = function(){
   return Math.floor((Math.random() * this.pinsAvailable) + 1);
 }
-
 Bowling.prototype.getScoreAfterRoll = function(){
   var roll = this.roll();
   this.pinsAvailable -= roll;
   this.score += roll;
   return roll;
-
+}
+Bowling.prototype.getCurrentPinsAvailable = function(){
+  this.getScoreAfterRoll();
+  return this.pinsAvailable;
 }
